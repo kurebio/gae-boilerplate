@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/log"
@@ -10,8 +11,9 @@ import (
 
 type (
 	APIResult struct {
-		URL   string              `json:"url"`
-		Query map[string][]string `json:"query"`
+		ProjectID string              `json:"project_id"`
+		URL       string              `json:"url"`
+		Query     map[string][]string `json:"query"`
 	}
 )
 
@@ -32,7 +34,7 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 
 	query := r.URL.Query()
 
-	res := APIResult{r.URL.Path, query}
+	res := APIResult{os.Getenv("PROJECT_ID"), r.URL.Path, query}
 	j, err := json.Marshal(res)
 	if err != nil {
 		w.WriteHeader(500)
