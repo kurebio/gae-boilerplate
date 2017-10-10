@@ -8,5 +8,5 @@
 
 /app-php/vendor
 
-/secret.perm
+/secret.pem
 /inc_secret.yaml
