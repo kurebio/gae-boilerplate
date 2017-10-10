@@ -15,19 +15,29 @@ dispatch.yaml
 dos.yaml
 ```
 
-```
-# Launch dev server.
+## Launch dev server.
+``` bash
 git clone https://github.com/kurebio/gae-boilerplate.git
 cd gae-boilerplate/app-php
 composer install
+
 # Replace kurebio-test-xxxxx to your project ID.
+grep -rl 'kurebio-test-xxxxx' --exclude='./README.md' . | xargs sed -i -e "s/kurebio-test-xxxxx/your-project-id/g"
+
 cd ..
+
 cp inc_secret.example.yaml inc_secret.yaml
+# Edit your secret variables.
+vi inc_secret.yaml
+
+# Create secret.pem.
+cat xxxx-privatekey.p12 | openssl pkcs12 -nodes -nocerts -passin pass:notasecret | openssl rsa > ./secret.pem
+
 ./dev.sh
 ```
 
-```
-# Request tests.
+## Request tests.
+``` bash
 # default service
 curl -I http://localhost:8080/
 curl -I -XPOST http://localhost:8080/
