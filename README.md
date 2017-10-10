@@ -22,6 +22,7 @@ cd gae-boilerplate/app-php
 composer install
 # Replace kurebio-test-xxxxx to your project ID.
 cd ..
+cp inc_secret.example.yaml inc_secret.yaml
 ./dev.sh
 ```
 
