@@ -16,7 +16,7 @@ type (
 )
 
 func init() {
-	http.HandleFunc("/api", APIHandler)
+	http.HandleFunc("/api/", APIHandler)
 }
 
 func APIHandler(w http.ResponseWriter, r *http.Request) {
@@ -32,7 +32,7 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 
 	query := r.URL.Query()
 
-	res := APIResult{r.URL.RawPath, query}
+	res := APIResult{r.URL.Path, query}
 	j, err := json.Marshal(res)
 	if err != nil {
 		w.WriteHeader(500)
@@ -40,5 +40,6 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(200)
 	w.Write(j)
 }

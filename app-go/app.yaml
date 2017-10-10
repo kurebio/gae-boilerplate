@@ -1,5 +1,5 @@
 application: kurebio-test-xxxxx
-service: front
+service: api
 version: 1
 runtime: go
 api_version: go1.8
@@ -18,11 +18,6 @@ includes:
 - ../inc_secret.yaml
 
 nobuild_files: vendor/
-
-handlers:
-- url: /cron_frontend/.*
-  script: _go_app
-  login: admin
 
 - url: /api/.*
   script: _go_app

@@ -10,17 +10,17 @@ handlers:
 
 - url: /favicon.ico
   static_files: public/favicon.ico
-  upload: public/favicon.ico
+  upload: app-php/favicon.ico
   mime_type: image/x-icon
 
 - url: /robots.txt
   static_files: public/robots.txt
-  upload: public/robots.txt
+  upload: app-php/robots.txt
   mime_type: text/plain
 
-- url: /admin/.*
-  script: public/index.php
+- url: /admin/?.*
+  script: app-php/index.php
   login: admin
 
 - url: /.*
-  script: /app-php/index.php
+  script: app-php/index.php

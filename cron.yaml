@@ -1,0 +1,4 @@
+cron:
+- description: "run task"
+  url: /cron/run
+  schedule: every 10 mins synchronized
