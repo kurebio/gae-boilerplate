@@ -1,0 +1,12 @@
+*.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+.DS_Store
+
+!.gitkeep
+
+/app-php/vendor
+
+/secret.perm
+/inc_secret.yaml

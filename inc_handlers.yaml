@@ -1,0 +1,26 @@
+handlers:
+- url: /css
+  static_dir: public/css
+
+- url: /fonts
+  static_dir: public/fonts
+
+- url: /js
+  static_dir: public/js
+
+- url: /favicon.ico
+  static_files: public/favicon.ico
+  upload: public/favicon.ico
+  mime_type: image/x-icon
+
+- url: /robots.txt
+  static_files: public/robots.txt
+  upload: public/robots.txt
+  mime_type: text/plain
+
+- url: /admin/.*
+  script: public/index.php
+  login: admin
+
+- url: /.*
+  script: /app-php/index.php

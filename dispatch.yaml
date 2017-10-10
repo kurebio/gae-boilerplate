@@ -1,0 +1,7 @@
+dispatch:
+- url: "*/admin*"
+  service: backend
+- url: "*/cron/*"
+  service: backend
+- url: "*/api/*"
+  service: front

@@ -1,0 +1,6 @@
+{
+    "name": "kurebio/app-php",
+    "require": {
+        "google/cloud": "^0.39.2"
+    }
+}

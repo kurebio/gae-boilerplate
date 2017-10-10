@@ -1,0 +1,22 @@
+application: kurebio-test-xxxxx
+service: default
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+instance_class: F1
+automatic_scaling:
+  min_idle_instances: 1
+  max_idle_instances: 10
+  min_pending_latency: 3000ms
+  max_pending_latency: 5000ms
+  max_concurrent_requests: 50
+
+skip_files:
+  - ^app-go/.*$
+
+includes:
+  - inc_handlers.yaml
+  - inc_variables.yaml
+  - inc_secret.yaml

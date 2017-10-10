@@ -1,0 +1,29 @@
+application: kurebio-test-xxxxx
+service: backend
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+instance_class: B1
+basic_scaling:
+  max_instances: 2
+  idle_timeout: 10m
+
+skip_files:
+  - ^app-go/.*$
+
+handlers:
+- url: /cron/.*
+  script: app-php/index.php
+  secure: always
+  login: admin
+
+- url: /admin/.*
+  script: app-php/index.php
+  secure: always
+  login: admin
+
+includes:
+  - inc_variables.yaml
+  - inc_secret.yaml
