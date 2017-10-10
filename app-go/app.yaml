@@ -19,6 +19,7 @@ includes:
 
 nobuild_files: vendor/
 
+handlers:
 - url: /api/.*
   script: _go_app
   secure: always
