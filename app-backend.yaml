@@ -12,6 +12,7 @@ basic_scaling:
 
 skip_files:
   - ^app-go/.*$
+  - ^app-python/.*$
 
 handlers:
 - url: /cron/.*

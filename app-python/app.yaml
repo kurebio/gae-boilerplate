@@ -1,7 +1,7 @@
 application: kurebio-test-xxxxx
-service: default
+service: pages
 version: 1
-runtime: php55
+runtime: python27
 api_version: 1
 threadsafe: yes
 
@@ -13,11 +13,12 @@ automatic_scaling:
   max_pending_latency: 5000ms
   max_concurrent_requests: 50
 
-skip_files:
-  - ^app-go/.*$
-  - ^app-python/.*$
-
 includes:
-  - inc_handlers.yaml
-  - inc_variables.yaml
-  - inc_secret.yaml
+- ../inc_variables.yaml
+- ../inc_secret.yaml
+
+handlers:
+- url: /static
+  static_dir: static
+- url: /.*
+  script: main.app

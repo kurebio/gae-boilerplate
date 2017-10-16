@@ -5,3 +5,5 @@ dispatch:
   service: backend
 - url: "*/api/*"
   service: api
+- url: "*/pages/*"
+  service: pages

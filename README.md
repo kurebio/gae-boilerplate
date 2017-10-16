@@ -7,9 +7,12 @@ service
 - backend
   - PHP55
     cron
-- front
+- api
   - Go1.8
     api
+- pages
+  - Python2.7
+    pages
 cron.yaml
 dispatch.yaml
 dos.yaml
@@ -20,6 +23,8 @@ dos.yaml
 git clone https://github.com/kurebio/gae-boilerplate.git
 cd gae-boilerplate/app-php
 composer install
+
+app-python/install.sh
 
 # Replace kurebio-test-xxxxx to your project ID.
 grep -rl 'kurebio-test-xxxxx' --exclude='./README.md' . | xargs sed -i -e "s/kurebio-test-xxxxx/your-project-id/g"
